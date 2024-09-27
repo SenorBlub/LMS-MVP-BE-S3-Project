@@ -1,0 +1,6 @@
+@LMS_MVP_BE_S3_Project_HostAddress = http://localhost:5272
+
+GET {{LMS_MVP_BE_S3_Project_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
