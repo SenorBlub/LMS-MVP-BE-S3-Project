@@ -1,6 +1,6 @@
-﻿using System.Numerics;
-using Core.Interfaces.IModels;
-using Core.Models;
+﻿using Core.Interfaces.IModels;
+
+namespace Core.Models;
 
 public class ActivityPlan :IActivityPlan
 {

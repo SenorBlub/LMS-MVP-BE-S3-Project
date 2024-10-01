@@ -1,4 +1,6 @@
-﻿namespace Core.Interfaces.IRepositories;
+﻿using Core.Models;
+
+namespace Core.Interfaces.IRepositories;
 
 public interface IActivityPlanRepository
 {

@@ -1,7 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.Numerics;
-using Core.Models;
+﻿using Core.Models;
+using Microsoft.EntityFrameworkCore;
 using Activity = System.Diagnostics.Activity;
+
+namespace Data.Contexts;
 
 public class MvpApiDbContext : DbContext
 {
@@ -38,7 +39,7 @@ public class MvpApiDbContext : DbContext
 			.HasForeignKey(ap => ap.PlanId);
 
 		modelBuilder.Entity<DateEntity>()
-		.HasKey(d => d.Id);
+			.HasKey(d => d.Id);
 
 		modelBuilder.Entity<Plan>()
 			.HasKey(p => p.Id);
