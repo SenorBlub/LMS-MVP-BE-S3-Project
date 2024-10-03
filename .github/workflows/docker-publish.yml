@@ -3,10 +3,7 @@ name: CI/CD for .NET Project
 on:
   push:
     branches:
-      - main
-  pull_request:
-    branches:
-      - main
+      - master
 
 jobs:
   build:
@@ -21,13 +18,12 @@ jobs:
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '8.0.x' # Ensure this matches your .NET SDK version
+          dotnet-version: '8.0.x'
 
-      # Setup Docker Buildx (optional for advanced builds)
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
-      # Log in to Docker Hub (replace with your Docker registry if needed)
+      # Log in to Docker Hub
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
@@ -39,14 +35,6 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          file: LMS-MVP-BE-S3-Project/Dockerfile # Path to your Dockerfile
+          file: LMS-MVP-BE-S3-Project/Dockerfile 
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/lms-mvp-be-s3-project:latest # Customize the image name
-
-      # Deploy step (optional, if deploying to a Kubernetes cluster, Azure, AWS, etc.)
-      - name: Deploy Application
-        if: github.ref == 'refs/heads/main'
-        run: |
-          echo "Deploying your application..."
-          # Add your deployment script here, e.g., using kubectl, Azure CLI, etc.
-
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/lms-mvp-be-s3-project:latest
