@@ -3,6 +3,8 @@ using Core.Models;
 using Data.Contexts;
 using Microsoft.EntityFrameworkCore;
 
+namespace Data.Repositories;
+
 public class ActivityPlanRepository : IActivityPlanRepository
 {
 	private readonly MvpApiDbContext _context;

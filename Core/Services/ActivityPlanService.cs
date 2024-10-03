@@ -1,8 +1,8 @@
 ﻿using Core.Interfaces.IRepositories;
 using Core.Interfaces.IServices;
 using Core.Models;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+
+namespace Core.Services;
 
 public class ActivityPlanService : IActivityPlanService
 {
