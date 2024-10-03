@@ -51,4 +51,15 @@ public class ActivityPlanService : IActivityPlanService
 		}
 		return activities;
 	}
+
+	public async Task LinkPlanToActivityAsync(int planId, int activityId)
+	{
+
+		await _activityPlanRepository.CreateActivityPlanAsync(new ActivityPlan
+		{
+			Id = Guid.NewGuid().GetHashCode(),
+			ActivityId = activityId,
+			PlanId = planId
+		});
+	}
 }

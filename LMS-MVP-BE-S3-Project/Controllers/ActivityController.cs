@@ -53,7 +53,7 @@ namespace YourNamespace.Controllers
 			return NoContent();
 		}
 
-		[HttpGet("by-plan/{planId}")]
+		[HttpGet("byPlan/{planId}")]
 		public async Task<ActionResult<IEnumerable<Activity>>> GetActivitiesByPlan(int planId)
 		{
 			var activities = await _activityService.GetActivitiesByPlanAsync(new Plan { Id = planId });

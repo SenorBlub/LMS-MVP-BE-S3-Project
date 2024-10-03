@@ -13,7 +13,7 @@ public class PlanRepository : IPlanRepository
 	public PlanRepository(MvpApiDbContext context)
 	{
 		_context = context;
-		_dbSet = context.Set<Plan>(); // Correctly initialize _dbSet
+		_dbSet = context.Plans;
 	}
 
 	public async Task<Plan> GetPlanByIdAsync(int id)

@@ -13,7 +13,7 @@ public class PlanDateRepository : IPlanDateRepository
 	public PlanDateRepository(MvpApiDbContext context)
 	{
 		_context = context;
-		_dbSet = context.Set<PlanDate>(); // Correctly initialize _dbSet
+		_dbSet = context.PlanDates;
 	}
 
 	public async Task<IEnumerable<Plan>> GetDatePlansAsync(DateEntity date)

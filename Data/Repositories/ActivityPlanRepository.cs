@@ -11,7 +11,7 @@ public class ActivityPlanRepository : IActivityPlanRepository
 	public ActivityPlanRepository(MvpApiDbContext context)
 	{
 		_context = context;
-		_dbSet = context.Set<ActivityPlan>();
+		_dbSet = context.ActivityPlans;
 	}
 
 	public async Task<IEnumerable<ActivityPlan>> GetPlannedActivitiesAsync()

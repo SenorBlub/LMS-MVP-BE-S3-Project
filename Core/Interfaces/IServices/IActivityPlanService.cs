@@ -6,4 +6,6 @@ public interface IActivityPlanService
 {
 	Task<IEnumerable<Plan>> GetPlansByActivityAsync(Activity activity);
 	Task<IEnumerable<Activity>> GetActivitiesByPlanAsync(Plan plan);
+
+	Task LinkPlanToActivityAsync(int planId, int activityId);
 }

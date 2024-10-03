@@ -32,7 +32,7 @@ public class PlanService : IPlanService
 
 	public async Task CreatePlanAsync(Plan plan)
 	{
-		// Create the plan in the database
+		plan.Id = Guid.NewGuid().GetHashCode();
 		await _planRepository.CreatePlanAsync(plan);
 	}
 

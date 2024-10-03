@@ -13,7 +13,7 @@ public class DateEntityRepository : IDateEntityRepository
 	public DateEntityRepository(MvpApiDbContext context)
 	{
 		_context = context;
-		_dbSet = context.Set<DateEntity>(); // Correctly initialize _dbSet
+		_dbSet = context.Dates;
 	}
 
 	public async Task<DateEntity> GetDateAsync(DateTime date)

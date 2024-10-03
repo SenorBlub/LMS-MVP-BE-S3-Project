@@ -45,6 +45,7 @@ public class ActivityService : IActivityService
 
 	public async Task CreateActivityAsync(Activity activity)
 	{
+		activity.Id = Guid.NewGuid().GetHashCode();
 		await _activityRepository.CreateActivityAsync(activity);
 	}
 

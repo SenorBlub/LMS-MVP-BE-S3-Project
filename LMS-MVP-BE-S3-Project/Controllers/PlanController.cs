@@ -46,7 +46,7 @@ namespace YourNamespace.Controllers
 			return NoContent();
 		}
 
-		[HttpGet("by-date")]
+		[HttpGet("byDate")]
 		public async Task<ActionResult<IEnumerable<Plan>>> GetPlansByDate([FromQuery] DateTime date)
 		{
 			var plans = await _planService.GetPlansByDateAsync(new DateEntity { Date = date });
