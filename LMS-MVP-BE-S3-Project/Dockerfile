@@ -5,6 +5,7 @@ USER app
 WORKDIR /app
 EXPOSE 8090
 EXPOSE 8091
+ENV ASPNETCORE_URLS="http://+:8090;http://+:8091"
  
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
