@@ -13,13 +13,13 @@ COPY ["LMS-MVP-BE-S3-Project/LMS-MVP-BE-S3-Project.csproj", "LMS-MVP-BE-S3-Proje
 RUN dotnet restore "./LMS-MVP-BE-S3-Project/LMS-MVP-BE-S3-Project.csproj"
 COPY . .
 WORKDIR "/src/LMS-MVP-BE-S3-Project"
-RUN dotnet build "./LMS-MVP-BE-S3-Project.csproj" -c $BUILD_CONFIGURATION -o /app/build
+RUN dotnet build "./Interaction.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./LMS-MVP-BE-S3-Project.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./Interaction.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "LMS-MVP-BE-S3-Project.dll"]
+ENTRYPOINT ["dotnet", "Interaction.dll"]
