@@ -9,8 +9,10 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["LMS-MVP-BE-S3-Project/LMS-MVP-BE-S3-Project.csproj", "LMS-MVP-BE-S3-Project/"]
-RUN dotnet restore "./LMS-MVP-BE-S3-Project/LMS-MVP-BE-S3-Project.csproj"
+COPY ["LMS-MVP-BE-S3-Project/Interaction.csproj", "LMS-MVP-BE-S3-Project/"]
+COPY ["Core/Core.csproj", "Core/"]
+COPY ["Data/Data.csproj", "Data/"]
+RUN dotnet restore "./LMS-MVP-BE-S3-Project/Interaction.csproj"
 COPY . .
 WORKDIR "/src/LMS-MVP-BE-S3-Project"
 RUN dotnet build "./Interaction.csproj" -c $BUILD_CONFIGURATION -o /app/build
